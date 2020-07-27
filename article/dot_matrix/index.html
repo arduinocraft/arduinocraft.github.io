@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="842xad3R5gOOwua6dR_OSalwoUG7hoy2nhwH4bDxT7A" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Dot Matrix Clock</title>
+</head>
+
+<body>
+  <div class="container">
+    <header id="main-header">
+      <div class="row no-gutters">
+
+        <div class="col-lg-12 col-md-7">
+          <div class="d-flex flex-column">
+            <div class="p-5 bg-dark text-white">
+              <div class="d-flex flex-row justify-content-between align-items-center">
+                <h1 class="judul">Gabriel Kheisa</h1>
+                <div class="d-none d-md-block">
+                </div>
+                <div>
+                </div>
+                <div>
+                  <a href="http://instagram.com/gabriel_kheisa" class="text-white">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </div>
+                <div>
+                  <a href="https://youtube.com/gabrielkheisa/" class="text-white">
+                    <i class="fab fa-youtube"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 bg-black text-center antiLinkBerubah">
+              <a href="../../index.html">Return to Home</a>
+            </div>
+
+            <div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <div id="home" class="collapse show">
+
+      <div class="card card-body py-5 show overflow-auto">
+
+        <h3>Dot Matrix Clock</h3>
+        
+        <div class="text-muted">
+        <p id="Tanggal"></p>
+        </div>
+        
+        <p>Simple dot matrix (8x32) clock that syncs with NTP server. I used MD_MAX72XX module using SPI protocol. Using
+          time.google.com as
+          NTP server is recommended because it syncs faster than pool.ntp.org by few milliseconds. Using millis()
+          function, NodeMCU syncs every
+          one hour to eliminate Wi-Fi usage, so it won't disturb other Wi-Fi devices. To make display more interactive,
+          I added "|" animation as
+          "connecting to NTP server" indicator and "." animation that blinks every second. To ensure that formatted
+          time, date, and day fit the
+          display, I modified some functions in NTPClient.cpp but if you have a bigger display resolution (bigger than
+          8x32), you can use original
+          NTPClient.cpp library.
+        </p>
+
+        <img src="../../img/dot_matrix.jpg" class="rounded mx-auto d-block img-fluid mb-3">
+        <hr>
+
+        <p>
+        </p>
+
+        <h5>.ino</h5>
+        
+
+        <div class="card card-body show mb-5">
+
+
+          <div id="list">
+            <p><iframe src="code_ino.txt" frameborder="0" height="390px" width="100%" id="code_ino"></iframe></p>
+          </div>
+
+
+        </div>
+
+        <h5>Modified NTPClient.cpp</h5>
+
+        <div class="card card-body show mb-5">
+
+          <p><iframe src="code_cpp.txt" frameborder="0" height="390px" width="100%" id="code_cpp"></iframe></p>
+        </div>
+
+        <div class="card card-body show mb-5">
+          <iframe width="auto" height="753" src="https://www.youtube.com/embed/eyJCsX_3eEo" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <a href="https://gabrielkheisa.github.io">Return to Home</a>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="main-footer" class="p-5 bg-dark text-white">
+      <p class="text-right">2020 Gabriel Kheisa · 100% Open Source</p>
+    </footer>
+  </div>
+
+  <script src="../../js/moment.js"></script>
+  <script src="../../js/jquery-3.3.1.min.js"></script>
+  <script src="../../js/popper.min.js"></script>
+  <script src="../../js/bootstrap.min.js" c></script>
+  <script src="../../js/ekko-lightbox.min.js"></script>
+
+  <script>
+      var tanggal = "2020-04-11";
+      var teks = moment(tanggal).format("MMM Do YYYY");
+      var d = moment(tanggal).fromNow();
+      document.getElementById("Tanggal").innerHTML = teks + ", " + d;
+      </script>
+
+</body>
+
+</html>
